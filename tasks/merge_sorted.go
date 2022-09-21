@@ -7,7 +7,7 @@ type ListNode struct {
 }
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-	resNode := ListNode{}
+	var resNode *ListNode
 
 	if list1 == nil {
 		return list2
@@ -16,13 +16,13 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 
 	if list1.Val <= list2.Val {
-		resNode = *list1
+		resNode = list1
 		resNode.Next = mergeTwoLists(list1.Next, list2)
 	} else {
-		resNode = *list2
+		resNode = list2
 		resNode.Next = mergeTwoLists(list1, list2.Next)
 	}
-	return &resNode
+	return resNode
 
 }
 
